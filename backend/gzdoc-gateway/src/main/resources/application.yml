@@ -1,0 +1,76 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gzdoc-gateway
+  cloud:
+    gateway:
+      routes:
+        # 认证服务
+        - id: gzdoc-auth
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=1
+
+        # 文档服务
+        - id: gzdoc-document
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/document/**
+          filters:
+            - StripPrefix=1
+
+        # 问答服务
+        - id: gzdoc-qa
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/qa/**
+          filters:
+            - StripPrefix=1
+
+      # 全局CORS配置
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 3600
+
+  # Redis配置
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      database: 0
+      timeout: 5000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-wait: -1ms
+          max-idle: 8
+          min-idle: 0
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.gzdoc: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n"
+
+# Actuator配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

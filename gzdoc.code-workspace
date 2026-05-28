@@ -1,0 +1,48 @@
+{
+  "folders": [
+    {
+      "path": "backend",
+      "name": "🔧 Backend (Java)"
+    },
+    {
+      "path": "frontend",
+      "name": "🎨 Frontend (React)"
+    },
+    {
+      "path": "ai-service",
+      "name": "🤖 AI Service (Python)"
+    },
+    {
+      "path": "docs",
+      "name": "📚 Documentation"
+    },
+    {
+      "path": "infrastructure",
+      "name": "🚀 Infrastructure"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/__pycache__": true,
+      "**/target": true,
+      "**/.idea": true,
+      "**/.vscode": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/target": true,
+      "**/__pycache__": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "vscjava.vscode-java-pack",
+      "ms-python.python",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode"
+    ]
+  }
+}
