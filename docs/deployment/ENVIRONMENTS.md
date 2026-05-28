@@ -59,14 +59,14 @@ docker-compose -f docker-compose.prod.yml up -d
 - Port: 5432
 - Database: gzdoc_test
 - User: gzdoc
-- Password: gzdoc123
+- Password: (见 .env 文件)
 
 ### 测试环境
 - Host: localhost
 - Port: 5432
 - Database: gzdoc_test
 - User: gzdoc
-- Password: gzdoc123
+- Password: (见 .env 文件)
 
 ### 生产环境
 - Host: localhost

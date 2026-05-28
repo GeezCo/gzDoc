@@ -153,7 +153,7 @@ docker-compose down -v
 docker exec -it gzdoc-postgres-test psql -U gzdoc -d gzdoc_test
 
 # Redis
-docker exec -it gzdoc-redis-test redis-cli -a gzdoc123
+docker exec -it gzdoc-redis-test redis-cli -a $REDIS_PASSWORD
 ```
 
 ---
@@ -167,7 +167,7 @@ docker exec gzdoc-postgres-test pg_isready -U gzdoc
 
 ### Redis
 ```bash
-docker exec gzdoc-redis-test redis-cli -a gzdoc123 ping
+docker exec gzdoc-redis-test redis-cli -a $REDIS_PASSWORD ping
 ```
 
 ### MinIO
