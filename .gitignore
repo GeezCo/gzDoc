@@ -82,6 +82,11 @@ postgres-data/
 
 # AI Coding Tools
 .claude/
-.trellis/
 .cursor/
 .codex/
+
+# Trellis - 保留核心配置，只忽略临时文件
+.trellis/workspace/
+.trellis/.cache/
+.trellis/**/*.jsonl
+.trellis/**/.DS_Store
