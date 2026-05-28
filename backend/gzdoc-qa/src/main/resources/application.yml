@@ -11,7 +11,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/gzdoc?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: gzdoc
-    password: gzdoc123
+    password: ${REDIS_PASSWORD:your_password_here}
     druid:
       initial-size: 5
       min-idle: 5
