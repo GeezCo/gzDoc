@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException
 from app.models.schemas import QARequest, QAResponse, RelatedDocument
 from app.services.qa_service import QAService
 import uuid
-import time
 
 router = APIRouter()
 qa_service = QAService()
