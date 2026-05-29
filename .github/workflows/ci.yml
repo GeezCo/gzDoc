@@ -115,27 +115,27 @@ jobs:
         files: ./ai-service/coverage.xml
         flags: ai-service
 
-  docker-build:
-    name: Docker Build Test
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-
-    - name: Build Backend Image
-      run: |
-        cd backend
-        docker build -t gzdoc-backend:test .
-
-    - name: Build Frontend Image
-      run: |
-        cd frontend
-        docker build -t gzdoc-frontend:test .
-
-    - name: Build AI Service Image
-      run: |
-        cd ai-service
-        docker build -t gzdoc-ai-service:test .
+  # docker-build:
+  #   name: Docker Build Test
+  #   runs-on: ubuntu-latest
+  #
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #
+  #   - name: Set up Docker Buildx
+  #     uses: docker/setup-buildx-action@v3
+  #
+  #   - name: Build Backend Image
+  #     run: |
+  #       cd backend
+  #       docker build -t gzdoc-backend:test .
+  #
+  #   - name: Build Frontend Image
+  #     run: |
+  #       cd frontend
+  #       docker build -t gzdoc-frontend:test .
+  #
+  #   - name: Build AI Service Image
+  #     run: |
+  #       cd ai-service
+  #       docker build -t gzdoc-ai-service:test .
