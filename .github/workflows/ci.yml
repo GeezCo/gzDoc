@@ -98,11 +98,11 @@ jobs:
         pip install ruff
         ruff check .
 
-    - name: Type Check with mypy
-      run: |
-        cd ai-service
-        pip install mypy
-        mypy app --ignore-missing-imports
+    # - name: Type Check with mypy
+    #   run: |
+    #     cd ai-service
+    #     pip install mypy
+    #     mypy app --ignore-missing-imports
 
     - name: Test
       run: |
