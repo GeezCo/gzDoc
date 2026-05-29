@@ -30,7 +30,7 @@ async def parse_document(request: DocumentParseRequest):
             status="completed",
         )
 
-    except Exception as e:
+    except Exception:
         return DocumentParseResponse(
             document_id=request.document_id,
             content="",

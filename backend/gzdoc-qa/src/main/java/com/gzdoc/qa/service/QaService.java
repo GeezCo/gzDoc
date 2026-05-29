@@ -129,12 +129,10 @@ public class QaService {
      * 获取问答历史
      */
     public List<QaRecord> getHistory(Long tenantId, Long userId, Integer limit) {
-        return qaRecordMapper.selectList(
-                qaRecordMapper.selectList(null).stream()
-                        .filter(r -> r.getTenantId().equals(tenantId) && r.getUserId().equals(userId))
-                        .sorted((a, b) -> b.getCreateTime().compareTo(a.getCreateTime()))
-                        .limit(limit != null ? limit : 10)
-                        .collect(Collectors.toList())
-        );
+        return qaRecordMapper.selectList(null).stream()
+                .filter(r -> r.getTenantId().equals(tenantId) && r.getUserId().equals(userId))
+                .sorted((a, b) -> b.getCreateTime().compareTo(a.getCreateTime()))
+                .limit(limit != null ? limit : 10)
+                .collect(Collectors.toList());
     }
 }
