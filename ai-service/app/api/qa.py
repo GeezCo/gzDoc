@@ -15,8 +15,6 @@ sessions = {}
 async def ask_question(request: QARequest):
     """问答接口"""
     try:
-        start_time = time.time()
-
         # 获取会话历史
         session_history = None
         if request.session_id and request.session_id in sessions:
