@@ -90,3 +90,5 @@ postgres-data/
 .trellis/.cache/
 .trellis/**/*.jsonl
 .trellis/**/.DS_Store
+总体规划.md
+AGENTS.md
