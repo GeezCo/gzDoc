@@ -1,0 +1,29 @@
+# Test Profile Configuration
+spring.application.name=gzdoc-auth-test
+
+# Database (H2 for testing)
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.url=jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+spring.datasource.username=sa
+spring.datasource.password=
+
+# MyBatis-Plus
+mybatis-plus.mapper-locations=classpath*:/mapper/**/*.xml
+mybatis-plus.type-aliases-package=com.gzdoc.auth.entity
+mybatis-plus.configuration.map-underscore-to-camel-case=true
+mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis-plus.global-config.db-config.logic-delete-field=deleted
+mybatis-plus.global-config.db-config.logic-delete-value=1
+mybatis-plus.global-config.db-config.logic-not-delete-value=0
+
+# Redis (Embedded Redis for testing)
+spring.data.redis.host=localhost
+spring.data.redis.port=6379
+spring.data.redis.database=0
+
+# JWT
+jwt.secret=gzdoc-test-secret-key-for-jwt-token-generation-min-256-bits
+jwt.expiration=3600
+
+# Logging
+logging.level.com.gzdoc=DEBUG
