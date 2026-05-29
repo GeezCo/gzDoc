@@ -1,5 +1,4 @@
 import io
-from typing import Optional
 from PyPDF2 import PdfReader
 from docx import Document
 from openpyxl import load_workbook
