@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { Layout as AntLayout, Menu, Avatar, Dropdown } from 'antd'
+import { Layout as AntLayout, Menu, Avatar, Dropdown, message } from 'antd'
 import {
   DashboardOutlined,
   FileTextOutlined,
@@ -9,31 +8,25 @@ import {
   LogoutOutlined,
 } from '@ant-design/icons'
 import { authApi } from '@/services/auth'
-import type { User } from '@/types'
+import { getUserInfo, clearAuthData } from '@/utils/token'
+import { SUCCESS_MESSAGE, ROUTE_PATH } from '@/constants/auth'
 import './Layout.css'
 
 const { Header, Sider, Content } = AntLayout
 
 const Layout = () => {
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      navigate('/login')
-    }
-  }, [navigate])
-
-  const userInfo: User | null = JSON.parse(localStorage.getItem('userInfo') || 'null')
+  const userInfo = getUserInfo()
 
   const handleLogout = async () => {
     try {
       await authApi.logout()
+      message.success(SUCCESS_MESSAGE.LOGOUT_SUCCESS)
     } catch (error) {
       console.error('登出失败:', error)
     } finally {
-      localStorage.clear()
-      navigate('/login')
+      clearAuthData()
+      navigate(ROUTE_PATH.LOGIN, { replace: true })
     }
   }
 

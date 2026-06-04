@@ -22,6 +22,30 @@ export interface LoginResponse {
   userInfo: User
 }
 
+export interface RegisterRequest {
+  username: string
+  password: string
+  email: string
+  nickname?: string
+  tenantId?: number
+}
+
+export interface RegisterResponse {
+  userId: number
+  username: string
+  email: string
+}
+
+export interface RefreshTokenRequest {
+  refreshToken: string
+}
+
+export interface RefreshTokenResponse {
+  accessToken: string
+  refreshToken?: string
+  expiresIn: number
+}
+
 export interface Document {
   id: number
   name: string
